@@ -1,0 +1,90 @@
+:root {
+  --bg: #f7f7f8;
+  --surface: #ffffff;
+  --text: #1d1d1f;
+  --muted: #6b6b75;
+  --border: #e3e3e8;
+  --primary: #2f6fed;
+  --primary-hover: #1f58c9;
+  --error: #c62828;
+  --success: #2e7d32;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); }
+a { color: var(--primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+main.container { padding-top: 24px; padding-bottom: 48px; }
+
+/* Navbar */
+.navbar { background: var(--surface); border-bottom: 1px solid var(--border); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; min-height: 56px; }
+.brand { font-weight: 700; font-size: 1.25rem; color: var(--text); }
+nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+nav a { color: var(--muted); }
+nav a.active { color: var(--text); font-weight: 600; }
+
+/* Controls */
+button, .button {
+  background: var(--primary); color: #fff; border: 0; border-radius: 6px;
+  padding: 8px 14px; font: inherit; cursor: pointer; display: inline-block;
+}
+button:hover, .button:hover { background: var(--primary-hover); text-decoration: none; }
+button:disabled { background: #b8b8c0; cursor: not-allowed; }
+.link-btn { background: none; color: var(--primary); padding: 0; }
+.link-btn:hover { background: none; text-decoration: underline; }
+input, textarea, select {
+  font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: #fff;
+}
+input[type='number'] { width: 80px; }
+textarea { min-height: 80px; resize: vertical; }
+
+/* Search + grid */
+.search { display: flex; gap: 8px; margin-bottom: 20px; }
+.search input { flex: 1; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+.card img { aspect-ratio: 4 / 3; object-fit: cover; width: 100%; background: var(--border); }
+.card h3 { font-size: 1rem; margin: 12px 12px 0; color: var(--text); }
+.card-footer { display: flex; justify-content: space-between; align-items: center; padding: 12px; margin-top: auto; }
+.price { font-weight: 600; font-size: 1.1rem; }
+.pager { display: flex; gap: 6px; justify-content: center; margin-top: 24px; }
+.pager button { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+.pager button.active { background: var(--primary); color: #fff; }
+
+/* Detail */
+.detail { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+.detail img { border-radius: 10px; width: 100%; }
+.row { display: flex; gap: 8px; align-items: center; }
+@media (max-width: 700px) { .detail { grid-template-columns: 1fr; } }
+
+/* Tables */
+.table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+.table th, .table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.table th { background: #f0f0f3; font-weight: 600; font-size: 0.9rem; }
+.table tr.inactive td { color: var(--muted); }
+.actions { display: flex; gap: 12px; }
+@media (max-width: 700px) { .table { display: block; overflow-x: auto; } }
+
+.summary { display: flex; justify-content: space-between; align-items: center; margin: 16px 0; gap: 12px; }
+
+/* Forms */
+.form { max-width: 480px; background: var(--surface); padding: 24px; border: 1px solid var(--border); border-radius: 10px; display: flex; flex-direction: column; gap: 14px; }
+.form h1 { margin-top: 0; }
+.form label { display: flex; flex-direction: column; gap: 6px; font-weight: 500; }
+.form label.checkbox { flex-direction: row; align-items: center; }
+
+/* Feedback */
+.error { color: var(--error); }
+.success { color: var(--success); }
+.muted { color: var(--muted); font-size: 0.9rem; }
+.status { padding: 2px 8px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; background: #eee; }
+.status.paid { background: #e3f0ff; color: #1f58c9; }
+.status.shipped { background: #e6f4ea; color: var(--success); }
+.status.cancelled { background: #fdecea; color: var(--error); }
